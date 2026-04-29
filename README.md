@@ -22,7 +22,7 @@ CircuitSolver has 2 branches the [CLI Branch](https://github.com/PseudoSinusoida
   - Voltage Divider
  
 ### Next Updates
-- [ ] Adding scientific notations to help with readability.
+- [x] Adding scientific notations to help with readability.
 - [x] GUI Branch
 - [ ] Compiled Executable for [CLI Branch](https://github.com/PseudoSinusoidal/CircuitSolver/tree/cli)
 - [ ] Compiled Executable for [GUI Branch](https://github.com/PseudoSinusoidal/CircuitSolver/tree/gui)
