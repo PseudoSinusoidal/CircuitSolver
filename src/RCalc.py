@@ -1,6 +1,6 @@
 # Resistor Calculator Module
 # By Pseudosinusoidal
-from CalcUtilities import is_valid, show_menu
+from CalcUtilities import *
 
 Band_Colors = "0. Black\n1. Brown\n2. Red\n3. Orange\n4. Yellow\n5. Green\n6. Blue\n7. Violet\n8. Grey\n9. White"
 Multipliers = "0. Black\n1. Brown\n2. Red\n3. Orange\n4. Yellow\n5. Green\n6. Blue\n7. Violet\n8. Grey\n9. White\n10. Gold\n11. Silver"
@@ -39,7 +39,7 @@ def RCalc():
             "dividerw": lambda Vi, Idiv: round(Vi * Idiv, 4)
         },
         "Current": {
-            "placeholder": lambda var: Var + Var
+            "placeholder": lambda Var: Var + Var
         }
     }
     mm = "[*] Resistor Calculator\n[-1] Exit\n[1] Color Code\n[2] Voltage Division\n[3] Current Division - WIP\n[!] Enter value to proceed.\n"

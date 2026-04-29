@@ -1,7 +1,7 @@
 # Ohm's Law Calculator Module
 # By Pseudosinusoidal
 import math
-from CalcUtilities import is_valid, show_menu
+from CalcUtilities import *
 
 def OLawBase():
     formulas = {
