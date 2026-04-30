@@ -1,6 +1,6 @@
 # 555 Timer Calculator Module
 # By Pseudosinusoidal
-from CalcUtilities import *
+from modules.Utilities import *
 
 def Calc555():
     formulas = {
