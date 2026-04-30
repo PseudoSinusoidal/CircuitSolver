@@ -17,7 +17,7 @@ If you do find any bugs please report them and we'll get them fixed right away! 
 - Resistors
   - Color Code to Resistance
   - Voltage Divider
-  - *(WIP)* Current Divider
+  - Current Divider
 - *(WIP)* Bipolar Junction Transistor and Field-Effect Transistor
 - *(WIP)* PC817 Optocoupler
  
