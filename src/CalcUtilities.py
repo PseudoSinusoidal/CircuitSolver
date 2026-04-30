@@ -15,9 +15,11 @@ RESET = "\x1b[0m"
 invalid = f"{RED}[!] Invalid value. Try again.{RESET}"
 terminate = f"\n{RED}[!] Terminating module..{RESET}"
 
-def is_valid(prompt, mode):
+def is_valid(prompt, mode, allow_blank=False):
     ii = input(prompt)
     while True:
+        if allow_blank and ii == "":
+            return ii
         try:
             if mode == "float":
                 ii = float(ii) 
@@ -30,7 +32,7 @@ def is_valid(prompt, mode):
     return ii
 
 def show_menu(mm):
-    sleep(1)
+    sleep(0.25)
     os.system('cls' if os.name == 'nt' else 'clear')
     print(mm)
 
