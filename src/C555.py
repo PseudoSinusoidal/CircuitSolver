@@ -82,7 +82,7 @@ def Calc555():
                         Tl_, SN6 = notation(Tl)
                         if ReqOhmsPer < 1000:
                             print(f"{RED}[!] WARNING: Resistance Values under 1kΩ may damage 555 timer. Altering C1 value required.{RESET}")
-                        null = input(f"[!] To achieve {Hz_} {SN1}Hz at {C1_} {SN2}Farads:\n\n [!] Resistance each: {GREEN}{ReqOhmsPer_} {SN3}Ω{RESET}\n [!] Time High: {GREEN}{Th_} {SN5}s{RESET}\n [!] Time Low: {GREEN}{Tl_} {SN6}s{RESET}\n [!] Duty Cycle: {GREEN}{DC} %{RESET}\n\n[!] Press enter to continue.\n[!] To change Resistance values and therefore Duty Rate, type 'editr' instead.\n\n > ")
+                        null = input(f"[!] To achieve {Hz_} {SN1}Hz at {C1_} {SN2}Farads:\n\n [*] Resistance each: {GREEN}{ReqOhmsPer_} {SN3}Ω{RESET}\n [*] Time High: {GREEN}{Th_} {SN5}s{RESET}\n [*] Time Low: {GREEN}{Tl_} {SN6}s{RESET}\n [*] Duty Cycle: {GREEN}{DC} %{RESET}\n\n[!] Press enter to continue.\n[!] To change Resistance values and therefore Duty Rate, type 'editr' instead.\n\n > ")
                         
                         if null == "editr":
                             MaxR2 = (TotR / 2) - 1 # Finds and caps R2 value
@@ -108,7 +108,7 @@ def Calc555():
                                         R2_, SN2 = notation(R2)
                                         Th_, SN3 = notation(Th)
                                         Tl, SN4 = notation(Tl)
-                                        print(f" [R1] {GREEN}{R1_} {SN1}Ω{RESET}\n [R2] {GREEN}{R2_} {SN2}Ω{RESET}\n [!] Time High: {GREEN}{Th_} {SN3}s{RESET}\n [!] Time Low: {GREEN}{Tl_} {SN4}s{RESET}\n [!] Duty Cycle: {GREEN}{DC} %{RESET}\n")
+                                        print(f" [R1] {GREEN}{R1_} {SN1}Ω{RESET}\n [R2] {GREEN}{R2_} {SN2}Ω{RESET}\n [*] Time High: {GREEN}{Th_} {SN3}s{RESET}\n [*] Time Low: {GREEN}{Tl_} {SN4}s{RESET}\n [*] Duty Cycle: {GREEN}{DC} %{RESET}\n")
                             except KeyboardInterrupt:
                                 print("\n[!] Returning..")
                             show_menu(mm)
@@ -131,7 +131,7 @@ def Calc555():
                         R1, SN4 = notation(R1)
                         R2, SN5 = notation(R2)
                         C1, SN6 = notation(C1)
-                        null = input(f"\nUsing R1 {R1} {SN4}Ω, R2 {R2} {SN5}Ω and a capacitance of {C1} {SN6}Farads, you will achieve:\n [!] Frequency: {GREEN}{Hz} {SN1}Hz{RESET}\n [!] Time High: {GREEN}{Th} {SN2}s{RESET}\n [!] Time Low: {GREEN}{Tl} {SN3}s{RESET}\n [!] Duty Cycle: {GREEN}{DC} %{RESET}\n\n[!] Press enter to continue.")
+                        null = input(f"\nUsing R1 {R1} {SN4}Ω, R2 {R2} {SN5}Ω and a capacitance of {C1} {SN6}Farads, you will achieve:\n [*] Frequency: {GREEN}{Hz} {SN1}Hz{RESET}\n [*] Time High: {GREEN}{Th} {SN2}s{RESET}\n [*] Time Low: {GREEN}{Tl} {SN3}s{RESET}\n [*] Duty Cycle: {GREEN}{DC} %{RESET}\n\n[!] Press enter to continue.")
                         show_menu(mm)
                         break
 
