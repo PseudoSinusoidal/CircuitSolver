@@ -10,7 +10,7 @@ from C555 import *
 from OLaw import * 
 from RCalc import * 
 from BJTFET import *
-from PC817 import *
+from IntCirc import *
 from CalcUtilities import *
 
 # Module Dictionary
@@ -19,7 +19,7 @@ modules = {
     "2": OLawBase,
     "3": RCalc,
     "4": BJTFET,
-    "5": PC817
+    "5": IntCirc
 }
 
 mm = rf"""
@@ -53,7 +53,7 @@ mm = rf"""
  [2] {YELLOW}Ohm's Law{RESET}
  [3] {YELLOW}Resistor Utilities{RESET}
  [4] {YELLOW}BJT & MOSFET Utilities{RESET}
- [5] {YELLOW}PC817 IC{RESET}
+ [5] {YELLOW}Integrated Circuit Utilities{RESET}
 
  [CTRL+C] {RED}Exit{RESET}
 -------------------------------------------------------------"""
