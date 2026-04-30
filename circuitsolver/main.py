@@ -6,7 +6,7 @@
     Started: 2025-08-09  (YYYY-MM-DD)
 '''
 
-from utilities import *
+from utils.utilities import *
 from modules.C555 import *
 from modules.OLaw import * 
 from modules.RCalc import * 
