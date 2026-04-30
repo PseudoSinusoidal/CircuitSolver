@@ -25,8 +25,15 @@ If you do find any bugs please report them and we'll get them fixed right away! 
 - [x] Adding scientific notations to help with readability.
 - [ ] Compiled Executable for [CLI Branch](https://github.com/PseudoSinusoidal/CircuitSolver/tree/cli)
 
-## How to Use
-To use CircuitSolver find a suitable version in the [releases](https://github.com/PseudoSinusoidal/CircuitSolver/tree/cli) tab, then download the .zip file and extract the contents into an easily accessible location, next open a familiar terminal program, cd into the src folder, finally run the below command!
+## How to Install
+### (Linux)
+To install using linux copy the below command and run in your preferred terminal.
+```
+curl -fsSL https://raw.githubusercontent.com/PseudoSinusoidal/CircuitSolver/cli-tester/install.sh | bash
+```
+
+### (Windows)
+To install using windows find the latest version in: [releases](https://github.com/PseudoSinusoidal/CircuitSolver/tree/cli), then download the .zip file and extract the contents into an easily accessible location, next open a familiar terminal program, next cd into the circuitsolver folder, finally run the below command!
 ```
 python main.py
 ```
