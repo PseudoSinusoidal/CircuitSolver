@@ -8,14 +8,19 @@ If you do find any bugs please report them and we'll get them fixed right away! 
 
 ### Modules
 - 555 Timer
-  - Frequency to Component
-  - Component to Frequency
+  - Astable Mode
+    - Frequency to Component
+    - Component to Frequency
+  - Monostable Mode
+    - Duration to Components
+    - Components to Duration
 - Ohm's Law
   - Voltage
   - Current
   - Resistance
+  - Formula List
 - Resistors
-  - Color Code to Resistance
+  - Color Code to Resistance (Up to 6 band)
   - Voltage Divider
   - Current Divider
 - *(WIP)* Bipolar Junction Transistor and Field-Effect Transistor
