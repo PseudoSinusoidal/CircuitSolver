@@ -6,19 +6,23 @@ Co-Developed by: Floppy :P
 CircuitSolver is still being developed and is a long way from done so updates may be infrequent and bugfixes are common.\
 If you do find any bugs please report them and we'll get them fixed right away! Any suggestions are very welcome and will help out a lot in development!
 
-### Current Modules Available
+### Modules
 - 555 Timer
   - Frequency to Component
   - Component to Frequency
 - Ohm's Law
-  - (General Calculations)
+  - Voltage
+  - Current
+  - Resistance
 - Resistors
-  - Color Code Lookup
+  - Color Code to Resistance
   - Voltage Divider
+  - *(WIP)* Current Divider
+- *(WIP)* Bipolar Junction Transistor and Field-Effect Transistor
+- *(WIP)* PC817 Optocoupler
  
 ### Next Updates
 - [x] Adding scientific notations to help with readability.
-- [ ] Resistor Module: Current divider
 - [ ] Compiled Executable for [CLI Branch](https://github.com/PseudoSinusoidal/CircuitSolver/tree/cli)
 
 ## How to Use
