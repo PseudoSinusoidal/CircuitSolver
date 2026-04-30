@@ -1,20 +1,26 @@
 #!/usr/bin/env bash
 set -e
 
-echo "Installing CircuitSolver..."
+echo "Installing CircuitSolver (cli-tester)..."
 
-# remove old version
-rm -rf "$HOME/CircuitSolver-cli-tester"
+# clean old install
+rm -rf "$HOME/CircuitSolver-cli"
 
-# download + extract
+# download correct branch
 curl -fsSL https://github.com/PseudoSinusoidal/CircuitSolver/archive/refs/heads/cli-tester.tar.gz | tar -xz -C "$HOME"
+
+# rename extracted folder to stable name
+rm -rf "$HOME/CircuitSolver-cli"
+mv "$HOME/CircuitSolver-cli-tester" "$HOME/CircuitSolver-cli"
 
 # create command
 mkdir -p "$HOME/.local/bin"
 
-echo '#!/usr/bin/env bash
-cd "$HOME/CircuitSolver-cli-tester"
-python3 -m circuitsolver.main "$@"' > "$HOME/.local/bin/circuitsolver"
+cat > "$HOME/.local/bin/circuitsolver" << 'EOF'
+#!/usr/bin/env bash
+cd "$HOME/CircuitSolver-cli"
+python3 -m circuitsolver.main "$@"
+EOF
 
 chmod +x "$HOME/.local/bin/circuitsolver"
 
