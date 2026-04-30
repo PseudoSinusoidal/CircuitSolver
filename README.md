@@ -29,7 +29,7 @@ If you do find any bugs please report them and we'll get them fixed right away! 
 ### (Linux)
 To install using linux copy the below command and run in your preferred terminal.
 ```
-curl -fsSL https://raw.githubusercontent.com/PseudoSinusoidal/CircuitSolver/cli-tester/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/PseudoSinusoidal/CircuitSolver/cli/install.sh | bash
 ```
 
 ### (Windows)
