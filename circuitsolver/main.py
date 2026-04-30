@@ -7,11 +7,11 @@
 '''
 
 from circuitsolver.utils.utilities import *
-from modules.C555 import *
-from modules.OLaw import * 
-from modules.RCalc import * 
-from modules.BJTFET import *
-from modules.PC817 import *
+from circuitsolver.modules.C555 import *
+from circuitsolver.modules.OLaw import * 
+from circuitsolver.modules.RCalc import * 
+from circuitsolver.modules.BJTFET import *
+from circuitsolver.modules.PC817 import *
 
 # Module Dictionary
 modules = {
