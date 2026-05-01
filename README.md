@@ -26,12 +26,13 @@ If you do find any bugs please report them and we'll get them fixed right away! 
  
 ### Next Updates
 - [x] Adding scientific notations to help with readability.
-- [ ] Compiled Executable for [CLI Branch](https://github.com/PseudoSinusoidal/CircuitSolver/tree/cli)
+- [ ] UI and Optimization Update for Ohm's Law Module
+- [ ] Bipolar Junction Transistor and Field-Effect Transistor
+- [ ] PC817 Optocoupler
+- [ ] Compiled Executable for Windows
 
 ### Future Modules
-- [ ]  Bipolar Junction Transistor and Field-Effect Transistor
-- [ ]  PC817 Optocoupler
-- [ ]  Transformer Utilities (Turns ratio, waste power & efficiency, )
+- [ ]  Transformer Utilities (Turns ratio, waste power & efficiency)
 - [ ]  LM317 Resistor Configuration
 - [ ]  Stepper Motor Calibration
 - [ ]  OP AMP Gain
