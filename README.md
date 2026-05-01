@@ -26,10 +26,10 @@ If you do find any bugs please report them and we'll get them fixed right away! 
  
 ### Next Updates
 - [x] Adding scientific notations to help with readability.
-- [ ] UI and Optimization Update for Ohm's Law Module
+- [x] UI and Optimization Update for Ohm's Law Module
 - [ ] Bipolar Junction Transistor and Field-Effect Transistor
 - [ ] PC817 Optocoupler
-- [ ]  First compiled executable for Windows
+- [ ] First compiled executable for Windows
 
 ### Future Modules
 - [ ]  Transformer Utilities (Turns ratio, waste power & efficiency)
