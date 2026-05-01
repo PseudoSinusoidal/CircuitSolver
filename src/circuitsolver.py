@@ -45,7 +45,7 @@ mm = rf"""
                               ..                                                  
                               .                                                                                                                                                                                                            
 {RESET}=============================================================
-      {GREEN}Developed by PseudoSinusoidal      {YELLOW}Version: Beta{RESET}
+      {GREEN}Developed by PseudoSinusoidal      {YELLOW}Version: SOURCE{RESET}
 -------------------------------------------------------------
  {PURPLE}Please select from the following choices:{RESET}
 
