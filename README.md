@@ -29,7 +29,7 @@ If you do find any bugs please report them and we'll get them fixed right away! 
 - [ ] UI and Optimization Update for Ohm's Law Module
 - [ ] Bipolar Junction Transistor and Field-Effect Transistor
 - [ ] PC817 Optocoupler
-- [ ] Compiled Executable for Windows
+- [ ]  First compiled executable for Windows
 
 ### Future Modules
 - [ ]  Transformer Utilities (Turns ratio, waste power & efficiency)
