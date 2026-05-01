@@ -5,200 +5,55 @@ from modules.Utilities import *
 
 def OLawBase():
     formulas = {
-        "power": {
-            "1": lambda V, I: V * I,
-            "2": lambda R, I: R * (I ** 2),
-            "3": lambda V, R: (V ** 2) / R
-        },
-        "voltage": {
-            "1": lambda R, I: R * I,
-            "2": lambda P, I: P / I,
-            "3": lambda P, R: math.sqrt(P) * R
-        },
-        "current": {
-            "1": lambda P, R: math.sqrt(P) / R,
-            "2": lambda P, V: P / V,
-            "3": lambda V, R: V / R
-        },
-        "resistance": {
-            "1": lambda V, I: V / I,
-            "2": lambda V, P: (V ** 2) / P,
-            "3": lambda P, I: P / (I ** 2)
-        }
+        "2": ("power", "W", ["V * I", "R * I^2", "V^2 / R"], {
+            "1": lambda V, I: V * I, "2": lambda R, I: R * (I ** 2), "3": lambda V, R: (V ** 2) / R
+        }),
+        "3": ("voltage", "V", ["R * I", "P / I", "√P * R"], {
+            "1": lambda R, I: R * I, "2": lambda P, I: P / I, "3": lambda P, R: math.sqrt(P) * R
+        }),
+        "4": ("current", "A", ["√P / R", "P / V", "V / R"], {
+            "1": lambda P, R: math.sqrt(P) / R, "2": lambda P, V: P / V, "3": lambda V, R: V / R
+        }),
+        "5": ("resistance", "Ω", ["V / I", "V^2 / P", "P / I^2"], {
+            "1": lambda V, I: V / I, "2": lambda V, P: (V ** 2) / P, "3": lambda P, I: P / (I ** 2)
+        })
     }
-    mm = "[*] Ohm's Law Calculator\n[-1] Exit \n[1] Formula Sheet\n[2] Find Power\n[3] Find Voltage\n[4] Find Current\n[5] Find Resistance\n[!] Enter value to proceed.\n"
-    show_menu(mm)
-    # Menu Loop
-    while True:
-        ms = input("> ")
-        
-        # Exit
-        if ms == "-1":
-            print("[!] Terminating module..")
-            break
+    labels = {"V": "Voltage", "I": "Amperage", "R": "Resistance", "P": "Wattage"}
+    mm = f"{PURPLE} [*] Ohm's Law Calculator{RESET}\n\n   [1] {YELLOW}Formula Sheet{RESET}\n   [2] {YELLOW}Find Power{RESET}\n   [3] {YELLOW}Find Voltage{RESET}\n   [4] {YELLOW}Find Current{RESET}\n   [5] {YELLOW}Find Resistance{RESET}\n\n [CTRL+C] {RED}Back{RESET}\n"
     
-        # Formulas
-        elif ms == "1":
-            print("[!] Ohm's Law Formulas:\n[Power] V * I\n[Power] R * I^2\n[Power] V^2 / R\n[Voltage] R * I\n[Voltage] P / I\n[Voltage] √P * R\n[Current] √P / R\n[Current] P / V\n[Current] V / R\n[Resistance] V / I\n[Resistance] V^2 / P\n[Resistance] P / I^2\n")
-        
-        # Power
-        elif ms == "2":
-            while True:
-                formula_s = input("[?] Select Formula\n[1] V * I\n[2] R * I^2\n[3] V^2 / R\n> ")
-                if formula_s == "1":
-                    V = input("[?] Enter Voltage: ")
-                    ii = is_valid(V, "float")
-                    V = ii
-                    I = input("[?] Enter Amperage: ")
-                    ii = is_valid(I, "float")
-                    I = ii
-                    P = formulas["power"]["1"](V=V, I=I)
-                    null = input(f"[!] {P} Watts. Press enter to continue..\n\n")
-                    show_menu(mm)
-                    break
-                elif formula_s == "2":
-                    R = input("[?] Enter Resistance: ")
-                    ii = is_valid(R, "float")
-                    R = ii
-                    I = input("[?] Enter Amperage: ")
-                    ii = is_valid(I, "float")
-                    I = ii
-                    P = formulas["power"]["2"](I=I, R=R)
-                    null = input(f"[!] {P} Watts. Press enter to continue..\n\n")
-                    show_menu(mm)
-                    break
-                elif formula_s == "3":
-                    V = input("[?] Enter Voltage: ")
-                    ii = is_valid(V, "float")
-                    V = ii
-                    R = input("[?] Enter Resistance: ")
-                    ii = is_valid(R, "float")
-                    R = ii
-                    P = formulas["power"]["3"](V=V, R=R)
-                    null = input(f"[!] {P} Watts. Press enter to continue..\n\n")
-                    show_menu(mm)
-                    break
-                else:
-                    print("[!] Invalid value, please try again.")
-        
-        # Voltage
-        elif ms == "3":
-            while True:
-                formula_s = input("[?] Select Formula\n[1] R * I\n[2] P / I\n[3] √P * R\n> ")
-                if formula_s == "1":
-                    R = input("[?] Enter Resistance: ")
-                    ii = is_valid(R, "float")
-                    R = ii
-                    I = input("[?] Enter Amperage: ")
-                    ii = is_valid(I, "float")
-                    I = ii
-                    V = formulas["voltage"]["1"](R=R, I=I)
-                    null = input(f"[!] {V} Volts. Press enter to continue..\n\n")
-                    show_menu(mm)
-                    break
-                elif formula_s == "2":
-                    P = input("[?] Enter Wattage: ")
-                    ii = is_valid(P, "float")
-                    P = ii
-                    I = input("[?] Enter Amperage: ")
-                    ii = is_valid(I, "float")
-                    I = ii
-                    V = formulas["voltage"]["2"](P=P, I=I)
-                    null = input(f"[!] {V} Volts. Press enter to continue..\n\n")
-                    show_menu(mm)
-                    break
-                elif formula_s == "3":
-                    P = input("[?] Enter Wattage: ")
-                    ii = is_valid(P, "float")
-                    P = ii
-                    R = input("[?] Enter Resistance: ")
-                    ii = is_valid(R, "float")
-                    R = ii
-                    V = formulas["voltage"]["3"](P=P, R=R)
-                    null = input(f"[!] {V} Volts. Press enter to continue..\n\n")
-                    show_menu(mm)
-                    break
-                else:
-                    print("[!] Invalid value, please try again.")
-        
-        # Current
-        elif ms == "4":
-            while True:
-                formula_s = input("[?] Select Formula\n[1] √P / R\n[2] P / V\n[3] V / R\n> ")
-                if formula_s == "1":
-                    P = input("[?] Enter Wattage: ")
-                    ii = is_valid(P, "float")
-                    P = ii
-                    R = input("[?] Enter Resistance: ")
-                    ii = is_valid(R, "float")
-                    R = ii
-                    I = formulas["current"]["1"](P=P, R=R)
-                    null = input(f"[!] {I} Amps. Press enter to continue..\n\n")
-                    show_menu(mm)
-                    break
-                elif formula_s == "2":
-                    P = input("[?] Enter Wattage: ")
-                    ii = is_valid(P, "float")
-                    P = ii
-                    V = input("[?] Enter Voltage: ")
-                    ii = is_valid(V, "float")
-                    V = ii
-                    I = formulas["current"]["2"](P=P, V=V)
-                    null = input(f"[!] {I} Amps. Press enter to continue..\n\n")
-                    show_menu(mm)
-                    break
-                elif formula_s == "3":
-                    V = input("[?] Enter Voltage: ")
-                    ii = is_valid(V, "float")
-                    V = ii
-                    R = input("[?] Enter Resistance: ")
-                    ii = is_valid(R, "float")
-                    R = ii
-                    I = formulas["current"]["3"](V=V, R=R)
-                    null = input(f"[!] {I} Amps. Press enter to continue..\n\n")
-                    show_menu(mm)
-                    break
-                else:
-                    print("[!] Invalid value, please try again.")
-        
-        # Resistance
-        elif ms == "5":
-            while True:
-                formula_s = input("[?] Select Formula\n[1] V / I\n[2] V^2 / P\n[3] P / I^2\n> ")
-                if formula_s == "1":
-                    V = input("[?] Enter Voltage: ")
-                    ii = is_valid(V, "float")
-                    V = ii
-                    I = input("[?] Enter Amperage: ")
-                    ii = is_valid(I, "float")
-                    I = ii
-                    R = formulas["resistance"]["1"](V=V, I=I)
-                    null = input(f"[!] {R} Ohms. Press enter to continue..\n\n")
-                    show_menu(mm)
-                    break
-                elif formula_s == "2":
-                    V = input("[?] Enter Voltage: ")
-                    ii = is_valid(V, "float")
-                    V = ii
-                    P = input("[?] Enter Wattage: ")
-                    ii = is_valid(P, "float")
-                    P = ii
-                    R = formulas["resistance"]["2"](V=V, P=P)
-                    null = input(f"[!] {R} Ohms. Press enter to continue..\n\n")
-                    show_menu(mm)
-                    break
-                elif formula_s == "3":
-                    P = input("[?] Enter Wattage: ")
-                    ii = is_valid(P, "float")
-                    P = ii
-                    I = input("[?] Enter Amperage: ")
-                    ii = is_valid(I, "float")
-                    I = ii
-                    R = formulas["resistance"]["3"](P=P, I=I)
-                    null = input(f"[!] {R} Ohms. Press enter to continue..\n\n")
-                    show_menu(mm)
-                    break
-                else:
-                    print("[!] Invalid value, please try again.")
-        else:
-            print("[!] Invalid value, please try again.")
+    show_menu(mm)
+    try:
+        while True:
+            ms = input(" > ")
+            
+            if ms == "1":
+                clear()
+                print(f"{PURPLE} [*] Ohm's Law Formulas: {RESET}\n\n   [{RED}Power{RESET}]      V * I\n   [{RED}Power{RESET}]      R * I^2\n   [{RED}Power{RESET}]      V^2 / R\n   [{YELLOW}Voltage{RESET}]    R * I\n   [{YELLOW}Voltage{RESET}]    P / I\n   [{YELLOW}Voltage{RESET}]    √P * R\n   [{BLUE}Current{RESET}]    √P / R\n   [{BLUE}Current{RESET}]    P / V\n   [{BLUE}Current{RESET}]    V / R\n   [{GREEN}Resistance{RESET}] V / I\n   [{GREEN}Resistance{RESET}] V^2 / P\n   [{GREEN}Resistance{RESET}] P / I^2\n")
+                input("\n [!] Press enter to return to main menu.")
+                show_menu(mm)
+
+            elif ms in formulas:
+                clear()
+                _, unit, forms, funcs = formulas[ms]
+                while True:
+                    prompt_str = f" [?] {PURPLE}Select Formula:{RESET}\n" + "\n".join([f"   [{i+1}] {YELLOW}{f}{RESET}" for i, f in enumerate(forms)]) + "\n\n > "
+                    fs = input(prompt_str)
+                    
+                    if fs in funcs:
+                        func = funcs[fs]
+                        args = func.__code__.co_varnames[:2]
+                        val1 = is_valid(f" [?] Enter {labels[args[0]]}: ", "float")
+                        val2 = is_valid(f" [?] Enter {labels[args[1]]}: ", "float")
+
+                        ans = func(val1, val2)
+                        ans, sn = notation(ans)
+                        
+                        input(f"   [!] {GREEN}{ans} {sn}{unit}{RESET} \n\n[!] Press enter to continue.\n\n")
+                        show_menu(mm)
+                        break
+                    else:
+                        print(invalid)
+            else:
+                print(invalid)
+    except KeyboardInterrupt:
+        print(terminate)
