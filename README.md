@@ -36,6 +36,10 @@ If you do find any bugs please report them and we'll get them fixed right away! 
 - [ ]  Stepper Motor Calibration
 - [ ]  OP AMP Gain
 - [ ]  Zener Diode Series Resistor under Load
+- [ ]  Buck & Boost Converter
+- [ ]  Three Phase Real & Apparent Power
+- [ ]  Root Mean Square Voltage
+- [ ]  Kinematics
 
 ## How to Use
 To use CircuitSolver find a suitable version in the [releases](https://github.com/PseudoSinusoidal/CircuitSolver/tree/cli) tab, then download the .zip file and extract the contents into an easily accessible location, next open a familiar terminal program, cd into the src folder, finally run the below command!
