@@ -33,7 +33,7 @@ If you do find any bugs please report them and we'll get them fixed right away! 
 ## How to Use
 To use CircuitSolver find a suitable version in the [releases](https://github.com/PseudoSinusoidal/CircuitSolver/tree/cli) tab, then download the .zip file and extract the contents into an easily accessible location, next open a familiar terminal program, cd into the src folder, finally run the below command!
 ```
-python main.py
+python circuitsolver.py
 ```
 
 ### Dependencies
