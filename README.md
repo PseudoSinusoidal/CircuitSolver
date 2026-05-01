@@ -23,12 +23,19 @@ If you do find any bugs please report them and we'll get them fixed right away! 
   - Color Code to Resistance (Up to 6 band)
   - Voltage Divider
   - Current Divider
-- *(WIP)* Bipolar Junction Transistor and Field-Effect Transistor
-- *(WIP)* PC817 Optocoupler
  
 ### Next Updates
 - [x] Adding scientific notations to help with readability.
 - [ ] Compiled Executable for [CLI Branch](https://github.com/PseudoSinusoidal/CircuitSolver/tree/cli)
+
+### Future Modules
+- [ ]  Bipolar Junction Transistor and Field-Effect Transistor
+- [ ]  PC817 Optocoupler
+- [ ]  Transformer Utilities (Turns ratio, waste power & efficiency, )
+- [ ]  LM317 Resistor Configuration
+- [ ]  Stepper Motor Calibration
+- [ ]  OP AMP Gain
+- [ ]  Zener Diode Series Resistor under Load
 
 ## How to Use
 To use CircuitSolver find a suitable version in the [releases](https://github.com/PseudoSinusoidal/CircuitSolver/tree/cli) tab, then download the .zip file and extract the contents into an easily accessible location, next open a familiar terminal program, cd into the src folder, finally run the below command!
