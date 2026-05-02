@@ -12,9 +12,8 @@ Please take a look at the [previews](#previews) section if you'd like to know th
   - [Future Modules](#future-modules)
   - [Next Updates](#next-updates)
   - [Install](#install)
-    - [Dependencies](#pre-install-dependencies)
-    - [Basic](#basic)
-    - [Advanced](#advanced)
+    - [Windows](#install-windows)
+    - [Linux](#install-linux)
 
 CircuitSolver is still being developed and is a long way from done so updates may be infrequent and bugfixes are common.\
 If you do find any bugs please report them and we'll get them fixed right away!\
@@ -25,6 +24,7 @@ Any suggestions are very welcome and will help out a lot in development!
 <img width="592" height="416" alt="Main-Menu-Preview" src="https://github.com/user-attachments/assets/cd51d1bf-1383-45f8-98c3-1b1fe65b1af7" />
 
 ### Modules
+Now with scientific notations and colors!
 - 555 Timer
   - Astable Mode
     - Frequency to Component
@@ -41,6 +41,11 @@ Any suggestions are very welcome and will help out a lot in development!
   - Color Code to Resistance (Up to 6 band)
   - Voltage Divider
   - Current Divider
+- Various Integrated Circuits
+  - PC817 (Finding the resistance value for the IR LED)
+- BJT and MOSFET
+  - BJT Base Resistor
+  - MOSFET Gate Series Resistor
 
 ### Future Modules
 - [ ]  Transformer Utilities (Turns ratio, waste power & efficiency)
@@ -54,24 +59,22 @@ Any suggestions are very welcome and will help out a lot in development!
 - [ ]  Kinematics
 
 ### Next Updates
-- [x] Adding scientific notations to help with readability.
-- [x] UI and Optimization Update for Ohm's Law Module
-- [x] Bipolar Junction Transistor and Field-Effect Transistor
-- [x] PC817 Optocoupler
-- [ ] First compiled executable for Windows
+- [ ] First compiled executable for Windows (Portable and Desktop)
+## Install (Windows)
+To use CircuitSolver, find a suitable version (Available as a portable package, as well as a desktop setup with a shortcut.) in the [releases](https://github.com/PseudoSinusoidal/CircuitSolver/tree/cli) tab, or you can download the SOURCE from the main page, and interface with python via 
+```
+python circuitsolver.py
+```
 
-## Install
-
+## Install (Linux)
 ### Pre-Install Dependencies
 ```
 python 3
 ```
-
 ### Basic
 To use CircuitSolver find a suitable version in the [releases](https://github.com/PseudoSinusoidal/CircuitSolver/tree/cli) tab, then download the .zip file and extract the contents into an easily accessible location, next open a familiar terminal program, cd into the src folder, finally run the below command!
 ```
 python circuitsolver.py
 ```
-
 ### Advanced
 (WIP)
