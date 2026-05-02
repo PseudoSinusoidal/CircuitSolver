@@ -35,7 +35,11 @@ Now with scientific notations and colors!
   - Color Code to Resistance (Up to 6 band)
   - Voltage Divider
   - Current Divider
+- BJT and MOSFET
+  - BJT Base Resistor
+  - MOSFET Gate Series Resistor
 - Various Integrated Circuits
+  - PC817 (Finding the resistance value for the IR LED)
   - 555 Timer
     - Astable Mode
       - Frequency to Component
@@ -43,10 +47,6 @@ Now with scientific notations and colors!
     - Monostable Mode
       - Duration to Components
       - Components to Duration
-  - PC817 (Finding the resistance value for the IR LED)
-- BJT and MOSFET
-  - BJT Base Resistor
-  - MOSFET Gate Series Resistor
 
 ### Future Modules
 - [ ]  Transformer Utilities (Turns ratio, waste power & efficiency)
