@@ -68,9 +68,9 @@ To use CircuitSolver using a portable package (or executable and desktop shortcu
 
 ### Linux
 (Requires: [pre-install dependencies](#pre-install-dependencies))
-To use CircuitSolver using linux, run the below command for the latest version. If you require an old version, change the version tag at the end of the command to the one you need.
+To use CircuitSolver using linux, run the below command for the latest version.
 ```
-(WIP)
+curl -fsSL https://raw.githubusercontent.com/PseudoSinusoidal/CircuitSolver/cli/install.sh | bash
 ```
 
 ### Advanced
