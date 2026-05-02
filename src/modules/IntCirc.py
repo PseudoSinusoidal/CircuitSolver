@@ -1,5 +1,7 @@
 from modules.Utilities import *
 # Integrated Circuits Calculator Module
+# By Pseudosinusoidal
+
 def IntCirc():
     formulas = {
         "PC817": {
@@ -7,16 +9,29 @@ def IntCirc():
             "IRResist": lambda IRAmps, IRVolts: round((IRVolts - 1.2) / IRAmps, 3), # Find resistor required to give correct forward current to IR LED
             "IRWatts": lambda IRVolts, IRAmps: round(IRVolts * IRAmps, 3), # I prefer not to do math outside of the formulas
             "CEAmps": lambda CVolts, CircR: round(CVolts / CircR, 3)
+        },
+        "Monostable": {
+            "duration": lambda Dur, C1: round((Dur / 1.1) / C1, 4), # Find R1 from Duration and C1
+            "components": lambda R1, C1: round(1.1 * R1 * C1, 4) # Find Duration from R1 and C1
+        },
+        "Astable": {
+            "TotalR": lambda Hz, C1: round((1.44 / Hz) / C1, 5), # Find total resistance from Hz and C1
+            "ohmsper": lambda TotR: round(TotR / 3, 2), # Find R1 and R2 from Total Resistance
+            "components": lambda R1, R2, C1: round(1.44 / (((R2 * 2) + R1) * C1), 5), # Find Hz from R1, R2, and C1.
+            "highdur": lambda TotR, C1: round(0.693 * ((TotR / 3) * 2) * C1, 5), # Find High Time from Total Resistance and C1.
+            "lowdur": lambda TotR, C1: round(0.693 * (TotR / 3) * C1, 5), # Find Low Time from Total Resistance and C1.
+            "duty": lambda Th, Tl: round(Th / (Th + Tl) * 100, 5) # Find Duty Cycle from Time High and Time Low.
         }
     }
 
-    mm = f"{PURPLE} [*] Miscellaneous Integrated Circuits{RESET}\n\n   [1] {YELLOW}PC817 - Find IR Resistor{RESET}\n\n [CTRL+C] {RED}Back{RESET}\n"
+    mm = f"{PURPLE} [*] Integrated Circuits Utilities{RESET}\n\n   [1] {YELLOW}PC817 - Find IR Resistor{RESET}\n   [2] {YELLOW}NE555P - Astable{RESET}\n   [3] {YELLOW}NE555P - Monostable{RESET}\n\n [CTRL+C] {RED}Back{RESET}\n"
     show_menu(mm) 
 
     try:
         while True:
             ms = input(" > ")
-            if ms == "1":
+
+            if ms == "1": # PC817
                 clear()
                 CVolts = is_valid("[?] Enter voltage on collector pin: ", "float")
                 CircR = is_valid("[!] Ex: 10K ohm pull-down resistor to ground if used as a signal\n[?] Enter total resistance on switched side: ", "float")
@@ -42,70 +57,8 @@ def IntCirc():
                 print(f"  [*] IR LED Resistor: {YELLOW}{IRResist} {SN3}Ω, {IRWatts} {SN4}W{RESET}")
                 null = input("\n\n[!] Press enter to continue.")
                 show_menu(mm)
-            else:
-                print(invalid)
-    except KeyboardInterrupt:
-        print(terminate)
-
-
-# 555 Timer Calculator Module
-# By Pseudosinusoidal
-def Calc555():
-    formulas = {
-        "Monostable": {
-            "duration": lambda Dur, C1: round((Dur / 1.1) / C1, 4), # Find R1 from Duration and C1
-            "components": lambda R1, C1: round(1.1 * R1 * C1, 4) # Find Duration from R1 and C1
-        },
-        "Astable": {
-            "TotalR": lambda Hz, C1: round((1.44 / Hz) / C1, 5), # Find total resistance from Hz and C1
-            "ohmsper": lambda TotR: round(TotR / 3, 2), # Find R1 and R2 from Total Resistance
-            "components": lambda R1, R2, C1: round(1.44 / (((R2 * 2) + R1) * C1), 5), # Find Hz from R1, R2, and C1.
-            "highdur": lambda TotR, C1: round(0.693 * ((TotR / 3) * 2) * C1, 5), # Find High Time from Total Resistance and C1.
-            "lowdur": lambda TotR, C1: round(0.693 * (TotR / 3) * C1, 5), # Find Low Time from Total Resistance and C1.
-            "duty": lambda Th, Tl: round(Th / (Th + Tl) * 100, 5) # Find Duty Cycle from Time High and Time Low.
-        }
-    }
-
-    mm = f"{PURPLE} [*] 555 Timer Calculator{RESET}\n\n   [1] {YELLOW}Monostable{RESET} \n   [2] {YELLOW}Astable{RESET}\n\n [CTRL+C] {RED}Back{RESET}\n"
-    show_menu(mm) 
-    
-    try:
-        while True:
-            ms = input(" > ")
-
-            # Monostable
-            if ms == "1":
-                clear()
-                print(f" {PURPLE}[*] Monostable Formula T = 1.1 * R1 * C1{RESET}\n  {GREEN}Find by:{RESET}\n\n   [1] {YELLOW}Duration Required{RESET}\n   [2] {YELLOW}Component Values{RESET}\n")
-                while True:
-                    mono_menu = input(" > ")
-                    if mono_menu == "1": # Finding Monostable Components from Required Duration
-                        Dur = is_valid("[?] Enter Pulse Duration in Seconds: ", "float")
-                        C1 = is_valid("[!] Default capacitor is 220uF. \n[?] Leave blank to use default, or enter in Farads: ", "float", allow_blank=True)
-                        if C1 == "":
-                            C1 = float(0.00022)
-                        R1 = formulas["Monostable"]["duration"](Dur=Dur, C1=C1)
-                        R1, SN = notation(R1)
-                        Dur, SN2 = notation(Dur)
-                        C1, SN3 = notation(C1)
-                        null = input(f"[!] The required resistance to achieve {Dur} {SN2}s with {C1} {SN3}Farads is: \n\n   {GREEN}{R1}~ {SN}Ω{RESET}\n\n[!] Press enter to continue.")
-                        show_menu(mm)
-                        break
-
-                    elif mono_menu == "2": # Finding Monostable Timing from Input Components
-                        R1 = is_valid("[?] Resistor 1 Value in Ohms: ", "float")
-                        C1 = is_valid("[?] Capacitor 1 Value in Farads: ", "float")
-                        Time = formulas["Monostable"]["components"](R1=R1, C1=C1)
-                        Time, SN = notation(Time)
-                        null = input(f"[!] These components would produce a duration of: {GREEN}{Time}{RESET} {SN}s\n\n[!] Press enter to continue.")
-                        show_menu(mm)
-                        break
-
-                    else:
-                        print(invalid)
                 
-            # Astable
-            elif ms == "2":
+            elif ms == "2": # Astable
                 clear()
                 print(f" {PURPLE}[*] Astable Formula Hz = 1.44 / (R1 + 2*R2) * C1{RESET}\n  {GREEN}Find by:{RESET}\n\n   [1] {YELLOW}Frequency Required{RESET}\n   [2] {YELLOW}Component Values{RESET}\n")
                 while True:
@@ -176,6 +129,36 @@ def Calc555():
                         R2, SN5 = notation(R2)
                         C1, SN6 = notation(C1)
                         null = input(f"\nUsing R1 {R1} {SN4}Ω, R2 {R2} {SN5}Ω and a capacitance of {C1} {SN6}Farads, you will achieve:\n [*] Frequency: {GREEN}{Hz} {SN1}Hz{RESET}\n [*] Time High: {GREEN}{Th} {SN2}s{RESET}\n [*] Time Low: {GREEN}{Tl} {SN3}s{RESET}\n [*] Duty Cycle: {GREEN}{DC} %{RESET}\n\n[!] Press enter to continue.")
+                        show_menu(mm)
+                        break
+
+                    else:
+                        print(invalid)
+            
+            elif ms == "3": # Monostable
+                clear()
+                print(f" {PURPLE}[*] Monostable Formula T = 1.1 * R1 * C1{RESET}\n  {GREEN}Find by:{RESET}\n\n   [1] {YELLOW}Duration Required{RESET}\n   [2] {YELLOW}Component Values{RESET}\n")
+                while True:
+                    mono_menu = input(" > ")
+                    if mono_menu == "1": # Finding Monostable Components from Required Duration
+                        Dur = is_valid("[?] Enter Pulse Duration in Seconds: ", "float")
+                        C1 = is_valid("[!] Default capacitor is 220uF. \n[?] Leave blank to use default, or enter in Farads: ", "float", allow_blank=True)
+                        if C1 == "":
+                            C1 = float(0.00022)
+                        R1 = formulas["Monostable"]["duration"](Dur=Dur, C1=C1)
+                        R1, SN = notation(R1)
+                        Dur, SN2 = notation(Dur)
+                        C1, SN3 = notation(C1)
+                        null = input(f"[!] The required resistance to achieve {Dur} {SN2}s with {C1} {SN3}Farads is: \n\n   {GREEN}{R1}~ {SN}Ω{RESET}\n\n[!] Press enter to continue.")
+                        show_menu(mm)
+                        break
+
+                    elif mono_menu == "2": # Finding Monostable Timing from Input Components
+                        R1 = is_valid("[?] Resistor 1 Value in Ohms: ", "float")
+                        C1 = is_valid("[?] Capacitor 1 Value in Farads: ", "float")
+                        Time = formulas["Monostable"]["components"](R1=R1, C1=C1)
+                        Time, SN = notation(Time)
+                        null = input(f"[!] These components would produce a duration of: {GREEN}{Time}{RESET} {SN}s\n\n[!] Press enter to continue.")
                         show_menu(mm)
                         break
 

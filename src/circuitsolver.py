@@ -14,11 +14,10 @@ from modules.Utilities import *
 
 # Module Dictionary
 modules = {
-    "1": Calc555,
-    "2": OLawBase,
-    "3": RCalc,
-    "4": BJTFET,
-    "5": IntCirc
+    "1": OLawBase,
+    "2": RCalc,
+    "3": BJTFET,
+    "4": IntCirc
 }
 
 mm = rf"""
@@ -37,11 +36,10 @@ mm = rf"""
 -------------------------------------------------------------
  {PURPLE}Please select from the following choices:{RESET}
 
- [1] {YELLOW}555 Timer IC{RESET}
- [2] {YELLOW}Ohm's Law{RESET}
- [3] {YELLOW}Resistor Utilities{RESET}
- [4] {YELLOW}BJT & MOSFET Utilities{RESET}
- [5] {YELLOW}Integrated Circuit Utilities{RESET}
+ [1] {YELLOW}Ohm's Law{RESET}
+ [2] {YELLOW}Resistor Utilities{RESET}
+ [3] {YELLOW}BJT & MOSFET Utilities{RESET}
+ [4] {YELLOW}Integrated Circuit Utilities{RESET}
 
  [CTRL+C] {RED}Exit{RESET}
 -------------------------------------------------------------"""
