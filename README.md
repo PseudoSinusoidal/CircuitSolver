@@ -1,10 +1,10 @@
 # CircuitSolver
 
 ## Overview
-CircuitSolver is an advanced terminal styled electrical calculator, which includes some of the most used and unused calculations and formulas\
+CircuitSolver is an advanced terminal styled electrical calculator, which includes some of the most used and unused calculations and formulas
 developed into a tiny package. Developed by PseudoSinusoidal & Floppy this calculator will become your best bud when it comes to needing a calculator!
 
-Please take a look at the [previews](#previews) section if you'd like to know the layout of the program.
+Please take a look at the [previews](#previews) section if you'd like to know the layout of the program before install.
 
 - Sections
   - [Previews](#previews)
@@ -12,7 +12,7 @@ Please take a look at the [previews](#previews) section if you'd like to know th
   - [Future Modules](#future-modules)
   - [Next Updates](#next-updates)
   - [Install](#install)
-    - [Dependencies](#dependencies)
+    - [Dependencies](#pre-install-dependencies)
     - [Basic](#basic)
     - [Advanced](#advanced)
 
@@ -21,7 +21,8 @@ If you do find any bugs please report them and we'll get them fixed right away!\
 Any suggestions are very welcome and will help out a lot in development!
 
 ### Previews
-
+#### Main Menu
+<img width="592" height="416" alt="Main-Menu-Preview" src="https://github.com/user-attachments/assets/cd51d1bf-1383-45f8-98c3-1b1fe65b1af7" />
 
 ### Modules
 - 555 Timer
