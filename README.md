@@ -12,8 +12,9 @@ Please take a look at the [previews](#previews) section if you'd like to know th
   - [Future Modules](#future-modules)
   - [Next Updates](#next-updates)
   - [Install](#install)
-    - [Windows](#install-windows)
-    - [Linux](#install-linux)
+    - [Windows](#windows)
+    - [Linux](#linux)
+    - [Advanced](#advanced)
 
 CircuitSolver is still being developed and is a long way from done so updates may be infrequent and bugfixes are common.\
 If you do find any bugs please report them and we'll get them fixed right away!\
@@ -25,13 +26,6 @@ Any suggestions are very welcome and will help out a lot in development!
 
 ### Modules
 Now with scientific notations and colors!
-- 555 Timer
-  - Astable Mode
-    - Frequency to Component
-    - Component to Frequency
-  - Monostable Mode
-    - Duration to Components
-    - Components to Duration
 - Ohm's Law
   - Voltage
   - Current
@@ -42,6 +36,13 @@ Now with scientific notations and colors!
   - Voltage Divider
   - Current Divider
 - Various Integrated Circuits
+  - 555 Timer
+    - Astable Mode
+      - Frequency to Component
+      - Component to Frequency
+    - Monostable Mode
+      - Duration to Components
+      - Components to Duration
   - PC817 (Finding the resistance value for the IR LED)
 - BJT and MOSFET
   - BJT Base Resistor
@@ -60,21 +61,27 @@ Now with scientific notations and colors!
 
 ### Next Updates
 - [ ] First compiled executable for Windows (Portable and Desktop)
-## Install (Windows)
-To use CircuitSolver, find a suitable version (Available as a portable package, as well as a desktop setup with a shortcut.) in the [releases](https://github.com/PseudoSinusoidal/CircuitSolver/tree/cli) tab, or you can download the SOURCE from the main page, and interface with python via 
+
+## Install
+### Windows
+To use CircuitSolver using a portable package (or executable and desktop shortcut), navigate to the [releases](https://github.com/PseudoSinusoidal/CircuitSolver/releases) page and download the latest version (or a previous version if needed) then, run the portable or executable file.
+
+### Linux
+(Requires: [pre-install dependencies](#pre-install-dependencies))
+To use CircuitSolver using linux, run the below command for the latest version. If you require an old version, change the version tag at the end of the command to the one you need.
+```
+(WIP)
+```
+
+### Advanced
+(Requires: [pre-install dependencies](#pre-install-dependencies))
+To use CircuitSolver using the SOURCE files, go to the [releases](https://github.com/PseudoSinusoidal/CircuitSolver/releases) page and download a zip from the version of your choosing.
+Next unzip the file and using a terminal navigate into the src folder and run the below command.
 ```
 python circuitsolver.py
 ```
 
-## Install (Linux)
 ### Pre-Install Dependencies
 ```
 python 3
 ```
-### Basic
-To use CircuitSolver find a suitable version in the [releases](https://github.com/PseudoSinusoidal/CircuitSolver/tree/cli) tab, then download the .zip file and extract the contents into an easily accessible location, next open a familiar terminal program, cd into the src folder, finally run the below command!
-```
-python circuitsolver.py
-```
-### Advanced
-(WIP)
