@@ -1,7 +1,51 @@
 from modules.Utilities import *
-
+# Integrated Circuits Calculator Module
 def IntCirc():
-    pass # WIP
+    formulas = {
+        "PC817": {
+            "IRAmps": lambda CVolts, CircR: round((CVolts / CircR) / 0.5 * 3, 3), # Find Collector-Emitter current from voltage and resistance, and then find Forward Current of IR
+            "IRResist": lambda IRAmps, IRVolts: round((IRVolts - 1.2) / IRAmps, 3), # Find resistor required to give correct forward current to IR LED
+            "IRWatts": lambda IRVolts, IRAmps: round(IRVolts * IRAmps, 3), # I prefer not to do math outside of the formulas
+            "CEAmps": lambda CVolts, CircR: round(CVolts / CircR, 3)
+        }
+    }
+
+    mm = f"{PURPLE} [*] Miscellaneous Integrated Circuits{RESET}\n\n   [1] {YELLOW}PC817 - Find IR Resistor{RESET}\n\n [CTRL+C] {RED}Back{RESET}\n"
+    show_menu(mm) 
+
+    try:
+        while True:
+            ms = input(" > ")
+            if ms == "1":
+                clear()
+                CVolts = is_valid("[?] Enter voltage on collector pin: ", "float")
+                CircR = is_valid("[!] Ex: 10K ohm pull-down resistor to ground if used as a signal\n[?] Enter total resistance on switched side: ", "float")
+                IRAmps = formulas["PC817"]["IRAmps"](CVolts=CVolts, CircR=CircR)
+                CEAmps = formulas["PC817"]["CEAmps"](CVolts=CVolts, CircR=CircR)
+                IRVolts = is_valid("[?] Enter voltage on IR/Detection side: ", "float")
+                IRResist = formulas["PC817"]["IRResist"](IRAmps=IRAmps, IRVolts=IRVolts)
+                IRWatts = formulas["PC817"]["IRWatts"](IRAmps=IRAmps, IRVolts=IRVolts)
+                IRVolts, SN1 = notation(IRVolts)
+                IRAmps, SN2 = notation(IRAmps)
+                IRResist, SN3 = notation(IRResist)
+                IRWatts, SN4 = notation(IRWatts)
+                CVolts, SN5 = notation(CVolts)
+                CEAmps, SN6 = notation(CEAmps)
+                CircR, SN7 = notation(CircR)
+                clear()
+                print(f"{RED}[!] WARNING: If using AC / Negative voltage, IR breakdown at -6v. Ensure that external diode is in parallel with opposite bias.{RESET}")
+                print(f"[*] {PURPLE}Transistor Side:{RESET}\n  [*] Collector Voltage: {GREEN}{CVolts} {SN5}V{RESET}")
+                print(f"  [*] Collector-Emitter Current: {GREEN}{CEAmps} {SN6}A{RESET}")
+                print(f"  [*] Circuit Resistance: {GREEN}{CircR} {SN7}Ω{RESET}")
+                print(f"[*] {PURPLE}IR Side:{RESET}\n  [*] IR LED Voltage: {GREEN}{IRVolts} {SN1}V{RESET}")
+                print(f"  [*] IR LED Forward Current: {GREEN}{IRAmps} {SN2}A{RESET}")
+                print(f"  [*] IR LED Resistor: {YELLOW}{IRResist} {SN3}Ω, {IRWatts} {SN4}W{RESET}")
+                null = input("\n\n[!] Press enter to continue.")
+                show_menu(mm)
+            else:
+                print(invalid)
+    except KeyboardInterrupt:
+        print(terminate)
 
 
 # 555 Timer Calculator Module
