@@ -55,10 +55,10 @@ Any suggestions are very welcome and will help out a lot in development!
 
 ### Next Updates
 - [x] Adding scientific notations to help with readability.
-- [X] UI and Optimization Update for Ohm's Law Module
-- [ ] Bipolar Junction Transistor and Field-Effect Transistor
+- [x] UI and Optimization Update for Ohm's Law Module
+- [x] Bipolar Junction Transistor and Field-Effect Transistor
 - [ ] PC817 Optocoupler
-- [ ]  First compiled executable for Windows
+- [ ] First compiled executable for Windows
 
 ## Install
 
