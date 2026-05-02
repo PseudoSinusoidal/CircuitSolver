@@ -37,12 +37,9 @@ def Calc555():
                     mono_menu = input(" > ")
                     if mono_menu == "1": # Finding Monostable Components from Required Duration
                         Dur = is_valid("[?] Enter Pulse Duration in Seconds: ", "float")
-                        C1 = input("[?] Default capacitor is 220uF. \nLeave blank to use default, or enter in Farads: ")
+                        C1 = is_valid("[!] Default capacitor is 220uF. \n[?] Leave blank to use default, or enter in Farads: ", "float", allow_blank=True)
                         if C1 == "":
                             C1 = float(0.00022)
-                        else:
-                            C1 = is_valid(" > ", "float")
-                            print(f"[!] Going with {C1} Farads")
                         R1 = formulas["Monostable"]["duration"](Dur=Dur, C1=C1)
                         R1, SN = notation(R1)
                         Dur, SN2 = notation(Dur)
