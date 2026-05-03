@@ -17,6 +17,7 @@ if [[ -d "$INSTALL_DIR" ]]; then
 		rm -rf "$INSTALL_DIR" # Remove old directory
 
 	elif [[ "$install_answer" == "N" ]]; then
+		: # Do nothing
 
 	# Invalid
 	else
