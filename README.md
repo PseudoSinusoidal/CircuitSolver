@@ -49,18 +49,17 @@ Now with scientific notations and colors!
       - Components to Duration
 
 ### Future Modules
+- [ ]  Three Phase Real & Apparent Power
+- [ ]  Root Mean Square Voltage
+- [ ]  Kinematics
+
+### Next Updates
 - [ ]  Transformer Utilities (Turns ratio, waste power & efficiency)
 - [ ]  LM317 Resistor Configuration
 - [ ]  Stepper Motor Calibration
 - [ ]  OP AMP Gain
 - [ ]  Zener Diode Series Resistor under Load
 - [ ]  Buck & Boost Converter
-- [ ]  Three Phase Real & Apparent Power
-- [ ]  Root Mean Square Voltage
-- [ ]  Kinematics
-
-### Next Updates
-- [ ] First compiled executable for Windows (Portable and Desktop)
 
 ## Install
 ### Windows
